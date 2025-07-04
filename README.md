@@ -2,7 +2,6 @@
 
 This repository contains hands-on validation of Large Language Model (LLM)-generated software solutions against real-world GitHub issues from high-quality open-source projects.
 
-> **Role Simulated:** `Senior Software Engineer – C# (LLM Evaluation & Repository Validation)`  
 > Focused on bug triaging, code reproduction, AI validation, and documenting results to support LLM training.
 
 ---
