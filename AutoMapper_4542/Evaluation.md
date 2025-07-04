@@ -1,56 +1,39 @@
-\# 🧪 LLM Evaluation – AutoMapper Issue #4542
+# 🧪 LLM Evaluation – AutoMapper Issue #4542
 
+🔗 [GitHub Issue](https://github.com/LuckyPennySoftware/AutoMapper/issues/4542)
 
+---
 
-🔗 \[GitHub Issue](https://github.com/LuckyPennySoftware/AutoMapper/issues/4542)
-
-
-
-\## 🐛 Problem
-
-
+## 🐛 Problem
 
 AutoMapper v15 removed the `MapperConfiguration(cfg => { ... })` constructor, causing compile-time errors for many existing codebases.  
 
-The LLM suggested using `MapperConfigurationExpression`, which was \*\*partially correct\*\*, but failed to compile under v15.
+The LLM suggested using `MapperConfigurationExpression`, which was **partially correct**, but failed to compile under v15 due to breaking changes.
 
+---
 
-
-\## 🧠 LLM Prompt
-
-
+## 🧠 LLM Prompt
 
 > In AutoMapper v15, this constructor is removed:  
-
 > `var config = new MapperConfiguration(cfg => { ... });`  
-
 > How do I define mappings now?
 
+---
 
+## 🤖 LLM Response
 
-\## 🤖 LLM Response
+ChatGPT suggested replacing the constructor with a more manual setup using `MapperConfigurationExpression` and a dynamic `Profile`, but this did not compile directly under v15 without internal workarounds.
 
+---
 
+## 🧪 Human Validation
 
-ChatGPT suggested replacing with `MapperConfigurationExpression` and a bridging profile, but this didn’t compile directly.
+To properly validate the LLM's suggestion, I downgraded to **AutoMapper v13.0.1**, where the original constructor is still supported and the LLM suggestion could be verified in a real project.
 
-
-
-\## 🧪 Human Validation
-
-
-
-To properly validate the LLM's suggestion, I downgraded to \*\*AutoMapper v13.0.1\*\*, where the original constructor is supported and LLM suggestion can be verified.
-
-
+### ✅ Working Code
 
 ```csharp
-
 var config = new MapperConfiguration(cfg =>
-
 {
-
-&nbsp;   cfg.CreateMap<Source, Destination>();
-
+    cfg.CreateMap<Source, Destination>();
 });
-
