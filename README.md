@@ -76,7 +76,3 @@ This repository demonstrates readiness for:
 - ✅ Developer in AI/ML Human Feedback Loops
 
 ---
-
-## 🤝 License
-
-MIT License – Open for educational and research reuse.
